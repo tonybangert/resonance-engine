@@ -61,6 +61,41 @@ export default function App() {
                 />
               </div>
             }
+            selectors={[
+              {
+                id: 'consumer',
+                selected: selectedConsumer?.name,
+                content: (
+                  <ConsumerPicker
+                    consumers={consumers}
+                    selected={selectedConsumer}
+                    onSelect={setSelectedConsumer}
+                  />
+                ),
+              },
+              {
+                id: 'campaign',
+                selected: selectedCampaign?.name,
+                content: (
+                  <CampaignPicker
+                    campaigns={campaigns}
+                    selected={selectedCampaign}
+                    onSelect={setSelectedCampaign}
+                  />
+                ),
+              },
+              {
+                id: 'context',
+                selected: selectedContext?.name,
+                content: (
+                  <ContextPicker
+                    contexts={contexts}
+                    selected={selectedContext}
+                    onSelect={setSelectedContext}
+                  />
+                ),
+              },
+            ]}
             results={
               <ScoreComparison
                 scoring={scoring}
