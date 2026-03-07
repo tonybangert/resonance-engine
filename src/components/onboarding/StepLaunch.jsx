@@ -36,18 +36,18 @@ export default function StepLaunch({ onLaunch }) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-full text-center px-8 max-w-3xl mx-auto gap-8">
+    <div className="flex flex-col items-center justify-center min-h-full text-center px-5 md:px-8 max-w-3xl mx-auto gap-5 md:gap-8 py-6">
       {/* Overline */}
       <motion.div
         {...fadeSlideUp}
         transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="text-xs text-text-muted uppercase tracking-[0.25em] font-medium"
+        className="text-[10px] md:text-xs text-text-muted uppercase tracking-[0.25em] font-medium"
       >
         Your Attribution Pipeline
       </motion.div>
 
       {/* Headline with staggered words */}
-      <div className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-[family-name:var(--font-family-heading)] font-semibold">
+      <div className="flex items-center justify-center gap-2 md:gap-3 text-2xl md:text-4xl font-[family-name:var(--font-family-heading)] font-semibold">
         <motion.span
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,14 +86,14 @@ export default function StepLaunch({ onLaunch }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 + i * 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-brand-surface/50 border border-brand-border/50 rounded-xl p-4 text-left"
+            className="bg-brand-surface/50 border border-brand-border/50 rounded-xl p-3 md:p-4 text-left"
           >
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2 mb-1 md:mb-2">
               <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
+                className="w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center shrink-0"
                 style={{ backgroundColor: `${card.color}15`, border: `1px solid ${card.color}30` }}
               >
-                <card.icon className="w-4 h-4" style={{ color: card.color }} />
+                <card.icon className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: card.color }} />
               </div>
               <span className="text-sm font-medium text-text-primary">{card.title}</span>
             </div>
@@ -102,21 +102,21 @@ export default function StepLaunch({ onLaunch }) {
         ))}
       </motion.div>
 
-      {/* Flow diagram */}
+      {/* Flow diagram — stacked on mobile, inline on desktop */}
       <motion.div
         {...fadeSlideUp}
         transition={{ delay: 1.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="flex items-center justify-center gap-2 text-xs text-text-muted"
+        className="flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-2 text-xs text-text-muted"
       >
-        <span className="px-2 py-1 bg-brand-surface-2/60 rounded text-text-secondary">
+        <span className="px-2 py-1 bg-brand-surface-2/60 rounded text-text-secondary text-[11px] md:text-xs">
           Consumer + Campaign + Context
         </span>
-        <ArrowRight className="w-3.5 h-3.5 text-brand-border-light" />
-        <span className="px-2 py-1 bg-brand-surface-2/60 rounded text-text-secondary">
+        <ArrowRight className="w-3.5 h-3.5 text-brand-border-light rotate-90 md:rotate-0" />
+        <span className="px-2 py-1 bg-brand-surface-2/60 rounded text-text-secondary text-[11px] md:text-xs">
           6-Stage Pipeline
         </span>
-        <ArrowRight className="w-3.5 h-3.5 text-brand-border-light" />
-        <span className="px-2 py-1 bg-combined-gold/10 border border-combined-gold/20 rounded text-combined-gold">
+        <ArrowRight className="w-3.5 h-3.5 text-brand-border-light rotate-90 md:rotate-0" />
+        <span className="px-2 py-1 bg-combined-gold/10 border border-combined-gold/20 rounded text-combined-gold text-[11px] md:text-xs">
           Resonance Score
         </span>
       </motion.div>
@@ -143,14 +143,14 @@ export default function StepLaunch({ onLaunch }) {
             onClick={handleLaunchClick}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="px-8 py-3.5 rounded-full text-base font-semibold text-brand-dark cursor-pointer"
+            className="px-6 py-3 md:px-8 md:py-3.5 rounded-full text-sm md:text-base font-semibold text-brand-dark cursor-pointer"
             style={{
               background: 'linear-gradient(135deg, #faa840, #f59e0b)',
             }}
           >
             <span className="flex items-center gap-2">
               Launch the Pipeline
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
             </span>
           </motion.button>
         </motion.div>
