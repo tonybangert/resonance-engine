@@ -10,12 +10,8 @@ import OnboardingFlow from './components/onboarding/OnboardingFlow'
 import { consumers, campaigns, contexts } from './data'
 import { useScoring } from './hooks/useScoring'
 
-const ONBOARDING_KEY = 'rmt-onboarding-complete'
-
 export default function App() {
-  const [showOnboarding, setShowOnboarding] = useState(
-    () => !localStorage.getItem(ONBOARDING_KEY)
-  )
+  const [showOnboarding, setShowOnboarding] = useState(true)
 
   // Auto-select a compelling example on load
   const [selectedConsumer, setSelectedConsumer] = useState(consumers[0])
@@ -25,7 +21,6 @@ export default function App() {
   const scoring = useScoring(selectedConsumer, selectedCampaign, selectedContext)
 
   const handleOnboardingComplete = useCallback(() => {
-    localStorage.setItem(ONBOARDING_KEY, 'true')
     setShowOnboarding(false)
   }, [])
 
