@@ -1,0 +1,41 @@
+:root {
+  /* Brand palette — Navy base */
+  --brand-dark: #102d50;
+  --brand-surface: #163761;
+  --brand-surface-2: #1c4170;
+  --brand-border: #2a5585;
+  --brand-border-light: #3a6898;
+
+  /* RMT Amber spectrum */
+  --rmt-orange: #faa840;
+  --rmt-orange-light: #fbbe6a;
+  --rmt-orange-glow: rgba(250, 168, 64, 0.3);
+
+  /* Engine Red spectrum */
+  --engine-red: #ef4537;
+  --engine-red-light: #f46e63;
+  --engine-red-glow: rgba(239, 69, 55, 0.3);
+
+  /* Combined Gold spectrum */
+  --combined-gold: #f59e0b;
+  --combined-gold-light: #fbbf24;
+  --combined-gold-glow: rgba(245, 158, 11, 0.4);
+
+  /* Text */
+  --text-primary: #f0f4f8;
+  --text-secondary: #a0b4c8;
+  --text-muted: #6889a8;
+
+  /* Accent */
+  --accent-blue: #3b82f6;
+  --accent-green: #22c55e;
+  --accent-purple: #a855f7;
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --sidebar-width: 320px;
+  --header-height: 64px;
+}
