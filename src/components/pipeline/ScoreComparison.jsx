@@ -44,7 +44,7 @@ export default function ScoreComparison({ scoring, consumer, campaign }) {
   const { stages, score, confidence, liftOverTraditional } = scoring
 
   return (
-    <div className="p-4 space-y-5">
+    <div className="p-3 md:p-4 space-y-4 md:space-y-5">
       {/* Act 1: Industry Standard */}
       <motion.div
         initial={{ opacity: 0, y: 8 }}
@@ -163,7 +163,7 @@ export default function ScoreComparison({ scoring, consumer, campaign }) {
                 decimals={1}
                 suffix="%"
                 duration={1200}
-                className="text-4xl font-bold text-combined-gold font-[family-name:var(--font-family-heading)]"
+                className="text-3xl md:text-4xl font-bold text-combined-gold font-[family-name:var(--font-family-heading)]"
               />
             </motion.div>
             <div className="text-xs text-text-muted mt-1">
@@ -220,7 +220,7 @@ export default function ScoreComparison({ scoring, consumer, campaign }) {
           <MotivationRadar
             consumer={consumer}
             campaign={campaign}
-            height={220}
+            height={190}
           />
         </div>
       )}

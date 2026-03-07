@@ -14,7 +14,7 @@ export default function ContextPicker({ contexts, selected, onSelect }) {
         </h3>
       </div>
 
-      <div className="flex-1 min-h-0 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
         {contexts.map(ctx => {
           const Icon = ICON_MAP[ctx.icon] || Tv
 
@@ -22,7 +22,7 @@ export default function ContextPicker({ contexts, selected, onSelect }) {
             <button
               key={ctx.id}
               onClick={() => onSelect(ctx)}
-              className={`w-full flex items-start gap-2 px-3 py-2.5 text-left hover:bg-brand-surface-2 transition-colors ${
+              className={`w-full flex items-start gap-2 px-3 py-3 md:py-2.5 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
                 selected?.id === ctx.id ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
               }`}
             >

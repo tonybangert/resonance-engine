@@ -2,15 +2,15 @@ import { Activity } from 'lucide-react'
 
 export default function Header() {
   return (
-    <header className="h-12 md:h-16 border-b border-brand-border bg-brand-surface flex items-center px-4 md:px-6 shrink-0">
+    <header className="h-11 md:h-16 border-b border-brand-border bg-brand-surface flex items-center px-3 md:px-6 shrink-0 pt-[env(safe-area-inset-top)]">
       <div className="flex items-center gap-2 md:gap-3">
-        <Activity className="w-5 h-5 md:w-6 md:h-6 text-rmt-orange" />
-        <div>
-          <h1 className="text-base md:text-xl font-semibold tracking-tight">
+        <Activity className="w-4 h-4 md:w-6 md:h-6 text-rmt-orange shrink-0" />
+        <div className="min-w-0">
+          <h1 className="text-sm md:text-xl font-semibold tracking-tight truncate">
             <span className="text-rmt-orange">RMT</span>
             <span className="text-combined-gold mx-1 md:mx-1.5">Resonance Engine</span>
           </h1>
-          <span className="text-[9px] md:text-[10px] text-text-muted tracking-wide">
+          <span className="text-[8px] md:text-[10px] text-text-muted tracking-wide hidden sm:inline">
             powered by <span className="text-engine-red">Aplora.ai</span>
           </span>
         </div>

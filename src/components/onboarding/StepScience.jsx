@@ -18,7 +18,7 @@ const fadeSlideUp = {
 
 export default function StepScience() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full text-center px-5 md:px-8 max-w-3xl mx-auto gap-5 md:gap-8 py-6">
+    <div className="flex flex-col items-center justify-center min-h-full text-center px-4 md:px-8 max-w-3xl mx-auto gap-3 md:gap-8 py-4 md:py-6">
       {/* Overline */}
       <motion.div
         {...fadeSlideUp}
@@ -29,7 +29,7 @@ export default function StepScience() {
       </motion.div>
 
       {/* Pipeline icon row — compact grid on mobile, inline on desktop */}
-      <div className="grid grid-cols-6 gap-1 md:flex md:items-center md:justify-center md:gap-1">
+      <div className="grid grid-cols-6 gap-0.5 md:flex md:items-center md:justify-center md:gap-1">
         {PIPELINE_STAGES.map((stage, i) => (
           <motion.div
             key={stage.label}
@@ -40,7 +40,7 @@ export default function StepScience() {
           >
             <div className="flex flex-col items-center gap-1">
               <div
-                className="w-9 h-9 md:w-11 md:h-11 rounded-lg flex items-center justify-center"
+                className="w-8 h-8 md:w-11 md:h-11 rounded-lg flex items-center justify-center"
                 style={{ backgroundColor: `${stage.color}15`, border: `1px solid ${stage.color}30` }}
               >
                 <stage.icon className="w-4 h-4 md:w-5 md:h-5" style={{ color: stage.color }} />

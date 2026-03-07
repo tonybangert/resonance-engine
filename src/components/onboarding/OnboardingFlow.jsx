@@ -93,7 +93,7 @@ export default function OnboardingFlow({ onComplete }) {
   return (
     <motion.div
       className="fixed inset-0 z-50 flex flex-col"
-      style={{ backgroundColor: '#102d50' }}
+      style={{ backgroundColor: '#102d50', height: '100dvh' }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -128,7 +128,7 @@ export default function OnboardingFlow({ onComplete }) {
       </div>
 
       {/* Bottom navigation */}
-      <div className="pb-6 md:pb-8 pt-3 md:pt-4 shrink-0">
+      <div className="pb-4 md:pb-8 pt-2 md:pt-4 shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))]">
         <StepIndicator
           currentStep={step}
           totalSteps={TOTAL_STEPS}

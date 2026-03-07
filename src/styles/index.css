@@ -31,6 +31,11 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Prevent pull-to-refresh on mobile */
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
   font-family: var(--font-family-body);
@@ -38,13 +43,33 @@ body {
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent text size adjustment on orientation change */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Smooth momentum scrolling */
+  -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
 }
 
-/* Scrollbar styling */
+/* Eliminate 300ms tap delay on mobile */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Hide scrollbars on mobile, show on desktop */
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    scrollbar-width: none;
+  }
+}
+
+/* Scrollbar styling (desktop) */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -73,4 +98,18 @@ h1, h2, h3, h4, h5, h6 {
   20% { opacity: 1; }
   80% { opacity: 1; }
   100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Safe area padding utilities for notched devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-area-top { padding-top: env(safe-area-inset-top); }
+  .safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* Prevent accidental selection during touch interactions */
+@media (max-width: 767px) {
+  .touch-manipulation {
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }

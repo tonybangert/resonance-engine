@@ -8,7 +8,7 @@ const fadeSlideUp = {
 
 export default function StepProblem() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full text-center px-5 md:px-8 max-w-3xl mx-auto gap-6 md:gap-10 py-6">
+    <div className="flex flex-col items-center justify-center min-h-full text-center px-4 md:px-8 max-w-3xl mx-auto gap-4 md:gap-10 py-4 md:py-6">
       {/* Overline */}
       <motion.div
         {...fadeSlideUp}
@@ -22,7 +22,7 @@ export default function StepProblem() {
       <motion.h1
         {...fadeSlideUp}
         transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="text-2xl md:text-4xl font-[family-name:var(--font-family-heading)] leading-snug"
+        className="text-xl md:text-4xl font-[family-name:var(--font-family-heading)] leading-snug"
       >
         <span className="text-text-primary">The ad industry spends $900B a year</span>
         <br />
@@ -33,14 +33,14 @@ export default function StepProblem() {
       <motion.div
         {...fadeSlideUp}
         transition={{ delay: 0.7, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="bg-brand-surface/50 border border-brand-border/50 rounded-2xl px-8 py-6 md:px-12 md:py-8"
+        className="bg-brand-surface/50 border border-brand-border/50 rounded-2xl px-6 py-4 md:px-12 md:py-8"
       >
         <AnimatedNumber
           value={15.0}
           decimals={1}
           suffix="%"
           duration={1500}
-          className="text-5xl md:text-6xl font-mono font-bold text-text-muted/60"
+          className="text-4xl md:text-6xl font-mono font-bold text-text-muted/60"
         />
         <div className="mt-2 text-sm text-text-secondary font-medium">
           Industry Standard Attribution
