@@ -14,7 +14,7 @@ export default function CampaignPicker({ campaigns, selected, onSelect, onAdvanc
         {campaigns.map(campaign => (
           <button
             key={campaign.id}
-            onClick={() => { onSelect(campaign); onAdvance?.() }}
+            onClick={() => onSelect(campaign)}
             className={`w-full flex items-start gap-2 px-3 py-3 md:py-2.5 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
               selected?.id === campaign.id ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
             }`}
@@ -43,6 +43,18 @@ export default function CampaignPicker({ campaigns, selected, onSelect, onAdvanc
           </button>
         ))}
       </div>
+
+      {/* Mobile: Next button */}
+      {onAdvance && selected && (
+        <div className="shrink-0 p-3 border-t border-brand-border md:hidden">
+          <button
+            onClick={onAdvance}
+            className="w-full py-2.5 bg-rmt-orange text-white text-sm font-semibold rounded-lg active:scale-[0.98] transition-transform touch-manipulation"
+          >
+            Next: Context
+          </button>
+        </div>
+      )}
     </div>
   )
 }

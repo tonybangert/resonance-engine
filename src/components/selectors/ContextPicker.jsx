@@ -5,7 +5,7 @@ const ICON_MAP = {
   Tv, Newspaper, Trophy, Laugh, Play, Smartphone, Headphones, Sofa,
 }
 
-export default function ContextPicker({ contexts, selected, onSelect, onAdvance }) {
+export default function ContextPicker({ contexts, selected, onSelect, onAdvance, onComplete }) {
   return (
     <div className="flex flex-col flex-1 min-h-0">
       <div className="p-3 border-b border-brand-border shrink-0">
@@ -21,7 +21,7 @@ export default function ContextPicker({ contexts, selected, onSelect, onAdvance 
           return (
             <button
               key={ctx.id}
-              onClick={() => { onSelect(ctx); onAdvance?.() }}
+              onClick={() => onSelect(ctx)}
               className={`w-full flex items-start gap-2 px-3 py-3 md:py-2.5 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
                 selected?.id === ctx.id ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
               }`}
@@ -48,6 +48,18 @@ export default function ContextPicker({ contexts, selected, onSelect, onAdvance 
           )
         })}
       </div>
+
+      {/* Mobile: View Pipeline button */}
+      {onComplete && selected && (
+        <div className="shrink-0 p-3 border-t border-brand-border md:hidden">
+          <button
+            onClick={onComplete}
+            className="w-full py-2.5 bg-rmt-orange text-white text-sm font-semibold rounded-lg active:scale-[0.98] transition-transform touch-manipulation"
+          >
+            View Pipeline
+          </button>
+        </div>
+      )}
     </div>
   )
 }

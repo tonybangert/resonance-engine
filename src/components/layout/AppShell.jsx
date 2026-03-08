@@ -31,6 +31,11 @@ export default function AppShell({ sidebar, selectors, children, results }) {
     }
   }, [activeSelectorTab])
 
+  // Navigate to Pipeline tab after final selection
+  const goToPipeline = useCallback(() => {
+    setActiveTab('pipeline')
+  }, [])
+
   // Swipe between tabs on mobile
   const handleTouchStart = useCallback((e) => {
     touchStartRef.current = e.touches[0].clientX
@@ -143,7 +148,10 @@ export default function AppShell({ sidebar, selectors, children, results }) {
                               transition={{ duration: 0.15 }}
                               className="flex flex-col min-h-full"
                             >
-                              {cloneElement(selectorMap[tab.id].content, { onAdvance: advanceSelectorTab })}
+                              {cloneElement(selectorMap[tab.id].content, {
+                                onAdvance: advanceSelectorTab,
+                                ...(tab.id === SELECTOR_TABS[SELECTOR_TABS.length - 1].id && { onComplete: goToPipeline }),
+                              })}
                             </motion.div>
                           ) : null
                         )}

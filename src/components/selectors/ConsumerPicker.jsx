@@ -82,7 +82,7 @@ export default function ConsumerPicker({ consumers, selected, onSelect, onAdvanc
               return (
                 <button
                   key={consumer.id}
-                  onClick={() => { onSelect(consumer); onAdvance?.() }}
+                  onClick={() => onSelect(consumer)}
                   className={`w-full flex items-start gap-2 px-4 py-2.5 md:py-2 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
                     isSelected ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
                   }`}
@@ -128,6 +128,18 @@ export default function ConsumerPicker({ consumers, selected, onSelect, onAdvanc
           </div>
         ))}
       </div>
+
+      {/* Mobile: Next button */}
+      {onAdvance && selected && (
+        <div className="shrink-0 p-3 border-t border-brand-border md:hidden">
+          <button
+            onClick={onAdvance}
+            className="w-full py-2.5 bg-rmt-orange text-white text-sm font-semibold rounded-lg active:scale-[0.98] transition-transform touch-manipulation"
+          >
+            Next: Campaign
+          </button>
+        </div>
+      )}
     </div>
   )
 }
