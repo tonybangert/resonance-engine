@@ -5,7 +5,7 @@ const ICON_MAP = {
   Tv, Newspaper, Trophy, Laugh, Play, Smartphone, Headphones, Sofa,
 }
 
-export default function ContextPicker({ contexts, selected, onSelect }) {
+export default function ContextPicker({ contexts, selected, onSelect, onAdvance }) {
   return (
     <div className="flex flex-col flex-1 min-h-0">
       <div className="p-3 border-b border-brand-border shrink-0">
@@ -21,7 +21,7 @@ export default function ContextPicker({ contexts, selected, onSelect }) {
           return (
             <button
               key={ctx.id}
-              onClick={() => onSelect(ctx)}
+              onClick={() => { onSelect(ctx); onAdvance?.() }}
               className={`w-full flex items-start gap-2 px-3 py-3 md:py-2.5 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
                 selected?.id === ctx.id ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
               }`}

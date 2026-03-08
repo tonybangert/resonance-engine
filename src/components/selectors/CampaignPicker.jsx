@@ -1,7 +1,7 @@
 import { Megaphone } from 'lucide-react'
 import Badge from '../shared/Badge'
 
-export default function CampaignPicker({ campaigns, selected, onSelect }) {
+export default function CampaignPicker({ campaigns, selected, onSelect, onAdvance }) {
   return (
     <div className="border-b border-brand-border flex flex-col flex-1 min-h-0">
       <div className="p-3 border-b border-brand-border shrink-0">
@@ -14,7 +14,7 @@ export default function CampaignPicker({ campaigns, selected, onSelect }) {
         {campaigns.map(campaign => (
           <button
             key={campaign.id}
-            onClick={() => onSelect(campaign)}
+            onClick={() => { onSelect(campaign); onAdvance?.() }}
             className={`w-full flex items-start gap-2 px-3 py-3 md:py-2.5 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
               selected?.id === campaign.id ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
             }`}
