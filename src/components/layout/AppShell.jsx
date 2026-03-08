@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, cloneElement } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SlidersHorizontal, GitBranch, BarChart3, User, Megaphone, Monitor, Check } from 'lucide-react'
 import Header from './Header'
@@ -22,6 +22,15 @@ export default function AppShell({ sidebar, selectors, children, results }) {
   const [activeSelectorTab, setActiveSelectorTab] = useState('consumer')
   const touchStartRef = useRef(null)
 
+  // Auto-advance to next selector tab on mobile
+  const advanceSelectorTab = useCallback(() => {
+    const tabIds = SELECTOR_TABS.map(t => t.id)
+    const currentIndex = tabIds.indexOf(activeSelectorTab)
+    if (currentIndex < tabIds.length - 1) {
+      setActiveSelectorTab(tabIds[currentIndex + 1])
+    }
+  }, [activeSelectorTab])
+
   // Swipe between tabs on mobile
   const handleTouchStart = useCallback((e) => {
     touchStartRef.current = e.touches[0].clientX
@@ -43,7 +52,7 @@ export default function AppShell({ sidebar, selectors, children, results }) {
     }
   }, [activeTab])
 
-  // Build selector lookup from array
+  // Build selector lookup from array, injecting onAdvance into content elements
   const selectorMap = {}
   if (selectors) {
     selectors.forEach(s => { selectorMap[s.id] = s })
@@ -134,7 +143,7 @@ export default function AppShell({ sidebar, selectors, children, results }) {
                               transition={{ duration: 0.15 }}
                               className="flex flex-col min-h-full"
                             >
-                              {selectorMap[tab.id].content}
+                              {cloneElement(selectorMap[tab.id].content, { onAdvance: advanceSelectorTab })}
                             </motion.div>
                           ) : null
                         )}

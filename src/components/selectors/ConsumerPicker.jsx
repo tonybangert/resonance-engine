@@ -3,7 +3,7 @@ import { Search, User, ChevronRight } from 'lucide-react'
 import { MOTIVATIONS, MOTIVATION_IDS } from '../../data'
 import Badge from '../shared/Badge'
 
-export default function ConsumerPicker({ consumers, selected, onSelect }) {
+export default function ConsumerPicker({ consumers, selected, onSelect, onAdvance }) {
   const [search, setSearch] = useState('')
   const [expandedSegment, setExpandedSegment] = useState(null)
 
@@ -82,7 +82,7 @@ export default function ConsumerPicker({ consumers, selected, onSelect }) {
               return (
                 <button
                   key={consumer.id}
-                  onClick={() => onSelect(consumer)}
+                  onClick={() => { onSelect(consumer); onAdvance?.() }}
                   className={`w-full flex items-start gap-2 px-4 py-2.5 md:py-2 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
                     isSelected ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
                   }`}
