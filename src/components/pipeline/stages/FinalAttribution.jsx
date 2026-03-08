@@ -15,27 +15,27 @@ export default function FinalAttribution({ scoring }) {
   return (
     <div className="space-y-3">
       {/* Before / After side-by-side */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-1.5 md:gap-2">
         {/* Left: RMT Science Alone */}
-        <div className="bg-brand-surface-2 rounded-lg p-3 text-center border border-brand-border/50">
-          <div className="text-[10px] text-rmt-orange uppercase tracking-wider font-medium mb-1">
-            RMT Science Alone
+        <div className="bg-brand-surface-2 rounded-lg p-2 md:p-3 text-center border border-brand-border/50">
+          <div className="text-[9px] md:text-[10px] text-rmt-orange uppercase tracking-wider font-medium mb-1">
+            RMT Science
           </div>
-          <div className="text-xl font-mono font-bold text-rmt-orange-light">
+          <div className="text-lg md:text-xl font-mono font-bold text-rmt-orange-light">
             {(rmtCtxScore * 100).toFixed(1)}%
           </div>
-          <div className="text-[10px] text-text-muted mt-0.5">R² ~ 0.677</div>
+          <div className="text-[9px] md:text-[10px] text-text-muted mt-0.5">R²~0.677</div>
         </div>
 
         {/* Right: + Agentic AI */}
-        <div className="bg-combined-gold/5 rounded-lg p-3 text-center border border-combined-gold/20">
-          <div className="text-[10px] text-combined-gold uppercase tracking-wider font-medium mb-1">
+        <div className="bg-combined-gold/5 rounded-lg p-2 md:p-3 text-center border border-combined-gold/20">
+          <div className="text-[9px] md:text-[10px] text-combined-gold uppercase tracking-wider font-medium mb-1">
             + Agentic AI
           </div>
-          <div className="text-xl font-mono font-bold text-combined-gold">
+          <div className="text-lg md:text-xl font-mono font-bold text-combined-gold">
             {(combinedScore * 100).toFixed(1)}%
           </div>
-          <div className="text-[10px] text-text-muted mt-0.5">R² ~ 0.88</div>
+          <div className="text-[9px] md:text-[10px] text-text-muted mt-0.5">R²~0.88</div>
         </div>
       </div>
 
@@ -54,20 +54,20 @@ export default function FinalAttribution({ scoring }) {
       </motion.div>
 
       {/* Phi blend + signals */}
-      <div className="grid grid-cols-2 gap-3">
-        <div className="bg-brand-surface-2 rounded-lg p-2.5 text-center">
-          <div className="text-[10px] text-text-muted uppercase">Phi Blend</div>
-          <div className="text-lg font-mono text-combined-gold">
+      <div className="grid grid-cols-2 gap-1.5 md:gap-3">
+        <div className="bg-brand-surface-2 rounded-lg p-2 md:p-2.5 text-center">
+          <div className="text-[9px] md:text-[10px] text-text-muted uppercase">Phi Blend</div>
+          <div className="text-base md:text-lg font-mono text-combined-gold">
             {PHI_BLEND.toFixed(3)}
           </div>
-          <div className="text-[10px] text-text-muted">RMT weight</div>
+          <div className="text-[9px] md:text-[10px] text-text-muted">RMT weight</div>
         </div>
-        <div className="bg-brand-surface-2 rounded-lg p-2.5 text-center">
-          <div className="text-[10px] text-text-muted uppercase">Signals</div>
-          <div className="text-lg font-mono text-combined-gold">
+        <div className="bg-brand-surface-2 rounded-lg p-2 md:p-2.5 text-center">
+          <div className="text-[9px] md:text-[10px] text-text-muted uppercase">Signals</div>
+          <div className="text-base md:text-lg font-mono text-combined-gold">
             {scoring.signalCount}/6
           </div>
-          <div className="text-[10px] text-text-muted">active</div>
+          <div className="text-[9px] md:text-[10px] text-text-muted">active</div>
         </div>
       </div>
 

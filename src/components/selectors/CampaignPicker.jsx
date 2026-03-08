@@ -10,12 +10,12 @@ export default function CampaignPicker({ campaigns, selected, onSelect }) {
         </h3>
       </div>
 
-      <div className="flex-1 min-h-0 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
         {campaigns.map(campaign => (
           <button
             key={campaign.id}
             onClick={() => onSelect(campaign)}
-            className={`w-full flex items-start gap-2 px-3 py-2.5 text-left hover:bg-brand-surface-2 transition-colors ${
+            className={`w-full flex items-start gap-2 px-3 py-3 md:py-2.5 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
               selected?.id === campaign.id ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
             }`}
           >

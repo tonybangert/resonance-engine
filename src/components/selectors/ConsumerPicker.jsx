@@ -58,17 +58,17 @@ export default function ConsumerPicker({ consumers, selected, onSelect }) {
             placeholder="Search 500 consumers..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full bg-brand-surface-2 border border-brand-border rounded-md pl-8 pr-3 py-1.5 text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-rmt-orange/50"
+            className="w-full bg-brand-surface-2 border border-brand-border rounded-lg pl-8 pr-3 py-2 md:py-1.5 text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-rmt-orange/50 touch-manipulation"
           />
         </div>
       </div>
 
-      <div className="flex-1 min-h-0 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
         {Object.entries(filteredSegments).map(([segId, seg]) => (
           <div key={segId}>
             <button
               onClick={() => setExpandedSegment(expandedSegment === segId ? null : segId)}
-              className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-text-secondary hover:bg-brand-surface-2 transition-colors"
+              className="w-full flex items-center justify-between px-3 py-2.5 md:py-2 text-xs font-medium text-text-secondary hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation"
             >
               <span>{seg.label} ({seg.consumers.length})</span>
               <ChevronRight
@@ -83,7 +83,7 @@ export default function ConsumerPicker({ consumers, selected, onSelect }) {
                 <button
                   key={consumer.id}
                   onClick={() => onSelect(consumer)}
-                  className={`w-full flex items-start gap-2 px-4 py-2 text-left hover:bg-brand-surface-2 transition-colors ${
+                  className={`w-full flex items-start gap-2 px-4 py-2.5 md:py-2 text-left hover:bg-brand-surface-2 active:bg-brand-surface-2 transition-colors touch-manipulation ${
                     isSelected ? 'bg-rmt-orange/10 border-l-2 border-rmt-orange' : ''
                   }`}
                 >
